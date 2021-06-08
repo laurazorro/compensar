@@ -228,9 +228,7 @@
                                         <label class="form-check-label" for="tratamientodatos">
                                             Tratamiento de datos personales
                                         </label>
-                                        <label class="datos" id="autorizotxt">No, autorizo el tratamiento de mis datos
-                                            personales y
-                                            lo terminos y condiciones de uso.</label>
+                                        <label class="datos" id="autorizotxt">No, autorizo el tratamiento de mis datos personales y lo terminos y condiciones de uso.</label>
                                         <a href="https://corporativo.compensar.com/proteccion-de-datos"
                                             target="_blank">Conocer mas.</a>
                                     </div>
@@ -391,17 +389,14 @@
         document.querySelector("#lbndocumento").textContent =
             document.querySelector("#tipodoc").value;
     });
-    textcomp =
-        "No, autorizo el tratamiento de mis datos personales y lo terminos y condiciones de uso.";
+    textcomp ="No, autorizo el tratamiento de mis datos personales y lo terminos y condiciones de uso.";
     document
         .querySelector("#tratamientodatos")
         .addEventListener("click", function () {
             if (document.querySelector("#autorizotxt").textContent == textcomp) {
-                document.querySelector("#autorizotxt").textContent =
-                    "Si, autorizo el tratamiento de mis datos personales y lo terminos y condiciones de uso.";
+                document.querySelector("#autorizotxt").textContent ="Si, autorizo el tratamiento de mis datos personales y lo terminos y condiciones de uso.";
             } else {
-                document.querySelector("#autorizotxt").textContent =
-                    "No, autorizo el tratamiento de mis datos personales y lo terminos y condiciones de uso.";
+                document.querySelector("#autorizotxt").textContent ="No, autorizo el tratamiento de mis datos personales y lo terminos y condiciones de uso.";
             }
         });
 
