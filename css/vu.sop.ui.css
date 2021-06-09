@@ -67,14 +67,14 @@
 .vu\.sop\.btn {
     display: inline-block;
     font-weight: 400;
-    color: #212529;
+    color: #fff;
     text-align: center;
     vertical-align: middle;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    background-color: transparent;
+    background-color: #ff6600;
     border: 1px solid transparent;
     padding: .375rem .75rem;
     font-size: 1rem;

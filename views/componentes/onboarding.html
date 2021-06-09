@@ -6,7 +6,7 @@
                 <h3 class="card-title text-center"><img src="../media/logo_compensar.png" class="logo"></h3>
             <div class="container">
                 <div class="text-center">
-                <small class="item">Recuerda que la proxima vez que ingreses, sera necesario completar el proceso de validacion de identidad.<br>Tu informacion e identidad segura son nuestra prioridad</small>
+                <small class="item">Recuerda que tienes 5 dias para realizar la validacion de identidad, despues de esto sera obligatorio terminar con el proceso.</small>
             </div>
             <div class="row text-center" style="padding: 26px;">
             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="278" height="95" viewBox="0 0 278 95">
@@ -15,11 +15,11 @@
             </div>
         </div>
         <div class="d-grid gap-2 col-10 mx-auto">
-            <a class="btn btn-primary"  href="#" onclick="registro()"  role="button">Lo entiendo y continuo</a>
+            <a class="btn btn-primary"  href="#" onclick="registro()"  role="button">De acuerdo, omitir</a>
         </div> 
         <div class="d-grid gap-2 col-10 mx-auto">
             <br>
-            <a class="btn btn-secondary"  href="#" onclick="infoonboarding()"  role="button">Volver a validacion de identidad</a>
+            <a class="btn btn-secondary"  href="#" onclick="infoonboarding()"  role="button">Comenzar validacion de identidad</a>
         </div> 
         
         
@@ -40,6 +40,6 @@
             $('#contenido').load('componentes/codigo.html');
         }
         function infoonboarding(){
-            $('#contenido').load('componentes/infoonboarding.html');
+            $('#contenido').load('componentes/registrar.html');
         }
     </script>

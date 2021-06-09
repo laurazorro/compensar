@@ -28,25 +28,60 @@
 
 
         <!-- USER -->
-        <div id="vu.sop.ui.userContainer" class="vu.sop.ui.fullSizeDiv">
-            <div class="vu.sop.ui.innerVerticalAlign" style="margin-top: -2em;">
+        <div id="vu.sop.ui.userContainer" class="container">
+            <div>
                 <form id="vu.sop.ui.userForm" action="#" onsubmit="let send = vu.face.auth.userDo(); return false;">
+                <div class="align-middle">
+                    <div><small>Recomendaciones captura de selfie</small></div>
+                    <div class="row">
+                        <div class="text-start col">
+                            <img src="../media/instruccion1.svg" style="width: 3em;" class="rounded-circle" alt="...">
+                        </div>
+                        <div class="text-end col-auto">
+                            <small>Busca un fondo claro</small>
+                        </div>
+                    </div>
+                    <div class="divisor"></div>
+                    <div class="row">
+                        <div class="text-start col">
+                            <small>Sin anteojos o cabello en el rostro</small>
+                        </div>
+                        <div class="text-end col">
+                            <img src="../media/instruccion1.svg" style="width: 3em;" class="rounded-circle" alt="..."> 
+                        </div>
+                    </div>
+                    <div class="divisor"></div>
+                    <div class="row">
+                        <div class="text-start col">
+                            <img src="../media/instruccion1.svg" style="width: 3em;" class="rounded-circle text-start" alt="...">
+                        </div>
+                        <div class="text-end col">
+                            <small class="text-end" >Sin anteojos o cabello en la cara</small>
+                        </div>     
+                    </div>
+                    <div class="divisor"></div>
+                    <div class="row">
+                        <div class="text-start col">
+                            <small class="text-start" >Ubica el celular a la altura de tu rostro</small>
+                        </div>
+                        <div class="text-end col">
+                            <img src="../media/instruccion1.svg" style="width: 3em;" class="rounded-circle text-end" alt="...">
+                        </div>
+                    </div>
+                </div>
                 <div class="vu.sop.input-group vu.sop.mb-3">
                     <input minlength="5"
                            id='vu.sop.ui.userName'
-                           type="email"
-                           class="vu.sop.form-control"
-                           placeholder="Correo de usuario"
-                           aria-describedby="basic-addon2"
-                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
-                    <div class="vu.sop.input-group-append">
-                        <button id='vu.sop.ui.userNameSendBtn' class="vu.sop.btn vu.sop.btn-outline-secondary" type="submit">
-                            Iniciar
-                        </button>
-                    </div>
+                           type="text"
+                           class="vu.sop.form-control visually-hidden">
+                </div>
+                <div class="mx-auto d-grid" style="margin-top: -10%;">
+                    <br />
+                    <button id='vu.sop.ui.userNameSendBtn' class="vu.sop.btn btn btn-primary" type="submit">
+                        Entendido
+                    </button>
                 </div>
                 </form>
-            </div>
         </div>
 
         <!-- Alert -->
