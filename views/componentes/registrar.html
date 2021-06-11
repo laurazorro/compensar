@@ -14,6 +14,16 @@ body{
 }
 </style>
 
+<script>
+    function alerta(){
+        Swal.fire({
+            html: "<small class='text-muted'>El numero del formulario de registro no coincide con el numero del documento</small>",
+            imageUrl: "../../media/logo_compensar.png",
+            confirmButtonText: "Volver"
+        });
+
+    }
+</script>
 <div class="container">
     <div class="card position-absolute top-50 start-50 translate-middle col-lg-6 col-md-8 col-11">
         <div class="card-body">
@@ -45,15 +55,31 @@ body{
                 'x-access-apikey': '9be36b98-612a-6a25-15c3-a7a7217b8fce'
             };            
             vu.sop.api.host = 'https://compensar.sop.dev.infomediaservice.online/vu-onboarding-rest/';
+// Personalizaciones
+vu.sop.start = async function() {
+// Prepara la camara y librerias para userInput() document()
+await vu.sop.steps.loadLibsAndCamera();
+// Pantalla de ingreso de usuario
+await vu.sop.steps.userInput();
+await function(){
+    $(document).ready(function(){
+        $(".vu.sop.ui.userNameSendBtn").click();
+    });
+}
+// Pantallas para subir los documentos
+await vu.sop.steps.document();
+// Agregar la pantalla
+await mipantalla();
+// Prepara la camara y librerias para authFace()
+await vu.sop.steps.loadLibsAndCameraFace();
+// Pantalla de autenticacion
+return await vu.sop.steps.authFace();
+};
             vu.sop.start().then(
                 function(res) {
                     if (res.identical === true){
                         if(localStorage.getItem('ocrdoc') != localStorage.getItem('documento')){
-                                swal({
-                                    text: "El documento del registro y de la cedula no coinciden",
-                                    icon: "warning",
-                                    button: false,
-                                });
+                                alerta();
                                 vu.sop.ui.alert('Autenticaci&oacute;n Exitosa<br>Confianza ' + Math.round(response.confidence*100) + '%' + ' ,pero el documento del registro y de la cedula no coinciden').then(function (res) {
                                     console.log(localStorage.getItem('ocrdoc'));
                                     window.location.reload(false);

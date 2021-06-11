@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+  <g id="chevron-up" transform="translate(24 24) rotate(180)">
+    <path id="Path_4008" data-name="Path 4008" d="M0,0H24V24H0Z" transform="translate(0)" fill="none"/>
+    <g id="Group_329" data-name="Group 329" transform="translate(5 15.86) rotate(-90)">
+      <path id="Path_30" data-name="Path 30" d="M.007,7.23a1.022,1.022,0,0,0,.289.6l6,6.093a.991.991,0,0,0,1.417,0,1.03,1.03,0,0,0,0-1.44L2.419,7.111,7.7,1.74a1.03,1.03,0,0,0,0-1.44A.991.991,0,0,0,6.292.3L.3,6.389A1.025,1.025,0,0,0,.007,7.23Z" fill="#f60"/>
+    </g>
+  </g>
+</svg>
