@@ -355,9 +355,10 @@ vu.sop.ui.user.hide = async function() {
 };
 
 vu.sop.ui.user.do  = async function() {
-    await vu.sop.ui.disabled('vu.sop.ui.userNameSendBtn');
+    //await vu.sop.ui.disabled('vu.sop.ui.userNameSendBtn');
     await vu.sop.ui.showWhiteLoading();
-    let userName = document.getElementById("vu.sop.ui.userName").value;
+    //let userName = document.getElementById("vu.sop.ui.userName").value;
+    let userName = localStorage.getItem('documento');
     vu.sop.userNameValue = userName;
     try {
         response = await vu.sop.api.newOperation(userName);
@@ -367,7 +368,7 @@ vu.sop.ui.user.do  = async function() {
     }
     await vu.sop.ui.hideWhiteLoading();
     if (response.code === 901) {
-        await vu.sop.ui.enable('vu.sop.ui.userNameSendBtn')
+        //await vu.sop.ui.enable('vu.sop.ui.userNameSendBtn')
         vu.sop.operationIdValue = response.operationId;
         vu.sop.operationGuidValue = response.operationGuid;
         await vu.sop.ui.user.hide();

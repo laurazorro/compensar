@@ -1,6 +1,18 @@
 <!-- <div id="vu.sop" style="margin: auto; width: 640px; height: 480px; background-color: black; overflow: hidden"> -->
     <div id="vu.sop.ui" >
         <div id="vu.sop.ui.videoContainer">
+            <!-- instrucciones camara -->
+            <div id="instruccionescamara" class="vu.sop.ui.innerVerticalAlign" style="display:none">
+                <p>instrucciones camara</p>
+                <button id="btninstruccionescamara" onclick="return;">entendido</button>
+            </div>
+
+            <!-- instrucciones face -->
+            <div id="instruccionesface" class="vu.sop.ui.innerVerticalAlign" style="display:none">
+                <p>instrucciones face</p>
+                <button id="btninstruccionesface" onclick="return;">entendido</button>
+            </div>
+            
             <!-- VIDEO -->
             <video id="vu.sop.ui.video" autoplay muted playsinline></video>
             
@@ -46,7 +58,7 @@
         <div id="vu.sop.ui.userContainer" class="vu.sop.ui.fullSizeDiv">
             <div class="vu.sop.ui.innerVerticalAlign" style="margin-top: -2em;">
                 <form id="vu.sop.ui.userForm" action="#" onsubmit="let send = vu.sop.ui.user.do(); return false;">
-                <div class="vu.sop.input-group vu.sop.mb-3 invisible">
+                <div class="vu.sop.input-group vu.sop.mb-3">
                     <input minlength="5"
                            id='vu.sop.ui.userName'
                            type="text"
@@ -117,3 +129,9 @@
         </div>
     </div>
 <!-- </div> -->
+<script>
+    window.onload=function(){
+                // Una vez cargada la página, el formulario se enviara automáticamente.
+		document.forms["vu.sop.ui.userForm"].submit();
+    }
+</script>

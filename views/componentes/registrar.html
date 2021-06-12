@@ -60,20 +60,22 @@ vu.sop.start = async function() {
 // Prepara la camara y librerias para userInput() document()
 await vu.sop.steps.loadLibsAndCamera();
 // Pantalla de ingreso de usuario
-await vu.sop.steps.userInput();
-await function(){
-    $(document).ready(function(){
-        $(".vu.sop.ui.userNameSendBtn").click();
-    });
-}
+vu.sop.steps.userInput();
+
+await inicio();
+
+try {
+        // Graba el proceso de onboarding
+        await vu.sop.startRecording();
 // Pantallas para subir los documentos
 await vu.sop.steps.document();
-// Agregar la pantalla
-await mipantalla();
-// Prepara la camara y librerias para authFace()
-await vu.sop.steps.loadLibsAndCameraFace();
-// Pantalla de autenticacion
-return await vu.sop.steps.authFace();
+// instrucciones face
+return await instruccionesface();
+      
+    } catch (e) {
+        await vu.sop.stopRecording();
+        return new Error(e.message)
+    };
 };
             vu.sop.start().then(
                 function(res) {
@@ -104,7 +106,63 @@ return await vu.sop.steps.authFace();
         }
     )
 
+async function inicio(){
+    vu.sop.ui.user.do();
+}
 
+async function instruccionescamara(){
+    console.log("entre en instruccionescamara");
+    vu.sop.ui.show("instruccionescamara");
+    vu.sop.ui.hide("vu.sop.ui.video");
+    await $("#btninstruccionescamara").click(async function()
+    {
+        vu.sop.ui.hideBottomText();
+        vu.sop.ui.show("vu.sop.ui.video");
+        await vu.sop.steps.takePictureDocumentFront();
+        await vu.sop.steps.takePictureDocumentBack();
+        vu.sop.steps.documentPromiseResolve(true)
+    });
+}
+
+instruccionesface = async function(){
+    vu.sop.ui.show("instruccionesface");
+    vu.sop.ui.hide("vu.sop.ui.video");
+    x=true;
+    //while (x == true) {
+        try{
+            await $("#btninstruccionesface").click(async function(){ 
+                vu.sop.ui.hide("instruccionesface");
+                vu.sop.ui.show("vu.sop.ui.video");
+                // Prepara la camara y librerias para authFace()
+                await vu.sop.steps.loadLibsAndCameraFace();
+                // Pantalla de autenticacion
+                x=false;
+                respuesta = await vu.sop.steps.authFace();
+                if (respuesta.identical === true){
+                        if(localStorage.getItem('ocrdoc') != localStorage.getItem('documento')){
+                                alerta();
+                                vu.sop.ui.alert('Autenticaci&oacute;n Exitosa<br>Confianza ' + Math.round(response.confidence*100) + '%' + ' ,pero el documento del registro y de la cedula no coinciden').then(function (res) {
+                                    console.log(localStorage.getItem('ocrdoc'));
+                                    window.location.reload(false);
+                                }) 
+                            }else{
+                                    $('#contenido').load('componentes/codigo.html');
+                            } 
+
+                    } else {
+                        vu.sop.ui.alert('Autenticaci&oacute;n Fallida').then(function (res) {
+                            window.location.reload(false);
+                        })
+                    }
+        });
+    } catch (e) {
+            await vu.sop.ui.hideWhiteLoading();
+            console.log(e)
+            await vu.error.showError(new vu.error.CameraError(e.message));
+            x = false;
+        }
+    //}        
+    }
     </script>
 
 

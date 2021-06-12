@@ -407,12 +407,13 @@ vu.sop.steps.document = async function() {
 
 vu.sop.steps.takePictureDocument = async function() {
     vu.sop.ui.hide("vu.sop.ui.documentSelectUploadMethod");
-    await()
-    vu.sop.ui.hideBottomText();
-    await vu.sop.steps.takePictureDocumentFront();
-    await vu.sop.steps.takePictureDocumentBack();
-    vu.sop.steps.documentPromiseResolve(true)
+    await instruccionescamara();
+    //vu.sop.ui.hideBottomText();
+    //await vu.sop.steps.takePictureDocumentFront();
+    //await vu.sop.steps.takePictureDocumentBack();
+    //vu.sop.steps.documentPromiseResolve(true)
 };
+
 
 vu.sop.steps.uploadFrontDocumentPicture = async function() {
     vu.sop.ui.hide("vu.sop.ui.documentSelectUploadMethod");
