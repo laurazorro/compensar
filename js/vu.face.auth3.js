@@ -93,7 +93,7 @@ vu.face.auth.load = async function(basePath) {
         document.getElementById('vu.sop.ui.userName').placeholder = vu.sop.msg.userInputPlaceholder
         document.getElementById('vu.sop.ui.userNameSendBtn').innerHTML = vu.sop.msg.userSendBtn
 
-        vu.sop.ui.bottomTextBackGroundColor("rgba(255, 102, 0, 1)");
+        vu.sop.ui.bottomTextBackGroundColor("rgba(255, 102, 0, 0.5)");
         await vu.face.auth.createLoadingImg();
 
     } catch (e) {
