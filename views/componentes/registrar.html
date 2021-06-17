@@ -116,6 +116,7 @@ async function instruccionescamara(){
     vu.sop.ui.hide("vu.sop.ui.video");
     await $("#btninstruccionescamara").click(async function()
     {
+        vu.sop.ui.hide("instruccionescamara");
         vu.sop.ui.hideBottomText();
         vu.sop.ui.show("vu.sop.ui.video");
         await vu.sop.steps.takePictureDocumentFront();
