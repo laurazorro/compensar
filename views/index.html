@@ -290,11 +290,14 @@
             str = tipodoc + documento;
             usuario = window.btoa(str);
 
+            alert("funcion login");
+
+            window.webkit.messageHandlers.test.postMessage(usuario);
+
             saveCredentials(documento, tipodoc, contrasena);
             loginConfirmed(usuario);
 
-            alert("funcion login");
-            prueba("Laura");
+
 
         }
     }
