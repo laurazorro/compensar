@@ -292,8 +292,6 @@
 
             alert("funcion login");
 
-            window.webkit.messageHandlers.test.postMessage(usuario);
-
             saveCredentials(documento, tipodoc, contrasena);
             loginConfirmed(usuario);
 
@@ -309,12 +307,28 @@
         }catch(error){
             console.log(error);
         }
+        //iOS
+        try{
+            //iOS envia un mensaje usuario y desde la app lo imprime en consola
+            window.webkit.messageHandlers.test.postMessage(usuario);
+        }catch(error){
+            console.log(error);
+        }
     }
 
     function saveCredentials(idNumber, idType, password){
         //Android
         try{
             HostApp.rememberUser(idNumber, idType, password);
+        }catch(error){
+            console.log(error);
+        }
+        //iOS
+        var credencial = {
+            usuario:[{idNumber :idNumber},{idType:idType},{password:password}]
+        }
+        try{
+            window.webkit.messageHandlers.test.postMessage(credencial);
         }catch(error){
             console.log(error);
         }
