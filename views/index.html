@@ -324,9 +324,10 @@
             console.log(error);
         }
         //iOS
-        var credenciales = {
-            usuario:[{idNumber :idNumber},{idType:idType},{password:password}]
-        }
+        //var credenciales = {usuario:[{idNumber :idNumber},{idType:idType},{password:password}]}
+
+        var credenciales = (idNumber+"/"+idType+"/"+password)
+
         try{
             window.webkit.messageHandlers.credencial.postMessage(credenciales);
         }catch(error){
