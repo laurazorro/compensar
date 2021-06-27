@@ -342,7 +342,7 @@
         }
         //iOS
         try{
-            window.webkit.messageHandlers.biometria.postMessage();
+            window.webkit.messageHandlers.biometria.postMessage(true);
         }catch(error){
             console.log(error)
         }
