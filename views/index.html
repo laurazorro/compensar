@@ -324,8 +324,6 @@
             console.log(error);
         }
         //iOS
-        //var credenciales = {usuario:[{idNumber :idNumber},{idType:idType},{password:password}]}
-
         var credenciales = (idNumber+"/"+idType+"/"+password)
 
         try{
@@ -342,6 +340,7 @@
         }catch(error){
             console.log(error);
         }
+        //iOS
     }
 
     function enterCredentials(idNumber, idType, password){
@@ -358,6 +357,12 @@
         }catch(error){
             console.log(error);
         }
+        //iOS
+        try{
+            return 
+        }catch(error){
+            console.log(error)
+        }
 
         return false;
     }
@@ -373,6 +378,13 @@
     $(document).ready(function ($) {
 
         biometricSetup();
+
+        try{
+            //iOS al iniciar envia el mensaje carga inicial
+            window.webkit.messageHandlers.cargainicial.postMessage();
+        }catch(error){
+            console.log(error);
+        }
 
         $("#alertvalida").fadeIn();
         setTimeout(function () {
