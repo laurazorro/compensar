@@ -372,7 +372,7 @@
         }else{
              $("#btnBiometric").hide();
         }
-        
+
         try{
             //iOS al iniciar envia el mensaje carga inicial
             window.webkit.messageHandlers.cargainicial.postMessage();
@@ -384,7 +384,12 @@
     $(document).ready(function ($) {
 
         biometricSetup();
-
+        try{
+            //iOS al iniciar envia el mensaje carga inicial
+            window.webkit.messageHandlers.cargainicial.postMessage();
+        }catch(error){
+            console.log(error);
+        }
         
 
         $("#alertvalida").fadeIn();
