@@ -375,7 +375,7 @@
 
         try{
             //iOS al iniciar envia el mensaje carga inicial
-            window.webkit.messageHandlers.cargainicial.postMessage();
+            window.webkit.messageHandlers.cargainicial.postMessage(true);
         }catch(error){
             console.log(error);
         }
@@ -386,7 +386,7 @@
         biometricSetup();
         try{
             //iOS al iniciar envia el mensaje carga inicial
-            window.webkit.messageHandlers.cargainicial.postMessage();
+            window.webkit.messageHandlers.cargainicial.postMessage(true);
         }catch(error){
             console.log(error);
         }
